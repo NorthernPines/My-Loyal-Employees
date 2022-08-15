@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 let team = [];
-
+console.log("\n  Manager\n-----------")
 inquirer
     .prompt([
         {
@@ -31,14 +34,15 @@ inquirer
         },
     ])
     .then((data) => {
-        // const manager = new Manager(data.name, data.id, data.email, data.office);
-        // team.push(manager);
+        const manager = new Manager(data.name, data.id, data.email, data.office);
+        team.push(manager);
         inputNext(data.choice);
     })
 
     function inputNext(choice) {
         if (choice === 'Create Engineer') {
         // for creating engineer
+            console.log("\n  Engineer\n------------")
             inquirer
                 .prompt([
                     {
@@ -69,12 +73,13 @@ inquirer
                     },
                 ])
                 .then((data) => {
-                    // const engineer = new Engineer(data.name, data.id, data.email, data.github);
-                    // team.push(engineer);
+                    const engineer = new Engineer(data.name, data.id, data.email, data.github);
+                    team.push(engineer);
                     inputNext(data.choice);
                  })
         }   else if (choice === 'Create Intern') {
             // for creating an intern
+            console.log("\n  Intern\n----------");
             inquirer
                 .prompt([
                     {
@@ -105,11 +110,11 @@ inquirer
                     },
                 ])
                 .then((data) => {
-                    // const intern = new Intern(data.name, data.id, data.email, data.school);
-                    // team.push(intern);
+                    const intern = new Intern(data.name, data.id, data.email, data.school);
+                    team.push(intern);
                     inputNext(data.choice);
                 })
         } else {
-            // once done inputting names
+            console.log(team);
         }
     }
