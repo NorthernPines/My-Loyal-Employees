@@ -2,7 +2,10 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
+const fs = require('fs');
 let team = [];
+let html = ""
+
 console.log("\n  Manager\n-----------")
 inquirer
     .prompt([
@@ -36,6 +39,7 @@ inquirer
     .then((data) => {
         const manager = new Manager(data.name, data.id, data.email, data.office);
         team.push(manager);
+        html += manager.addManager();
         inputNext(data.choice);
     })
 
@@ -115,6 +119,12 @@ inquirer
                     inputNext(data.choice);
                 })
         } else {
+            console.log();
             console.log(team);
+            html +=
+
+            fs.writeFile('dist/index.html', html, (err) =>
+            err ? console.error(err) : console.log("Go into the dist folder to see the html file you created")
+            );
         }
     }
