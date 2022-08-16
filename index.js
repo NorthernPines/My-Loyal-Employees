@@ -14,7 +14,7 @@ let html =
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-  <div class="bg-light p-5 rounded-lg">
+  <div class="bg-info p-5 rounded-lg">
     <h1 class="display-4 text-center">My Loyal Employees</h1>
     <p class="lead text-center">This is a simple page to display my employees and what you need to know about them</p>
   </div>
