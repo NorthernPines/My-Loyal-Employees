@@ -12,6 +12,8 @@ To create a page displaying info about the manager and an undetermined amount of
 
 ![My-Loyal-Employees](./dist/Screenshot.JPG)
 
+https://drive.google.com/file/d/1Ulkhj_B6zJxKGMIo2e8eNO_zy5iDqbOE/view
+
 ## Credits
 
 * Bootstrap
