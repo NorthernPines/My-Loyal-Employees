@@ -4,7 +4,17 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const fs = require('fs');
 let team = [];
-let html = ""
+let html = 
+`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My-Loyal-Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body class="d-flex flex-wrap mx-5 px-5">
+  `
 
 console.log("\n  Manager\n-----------")
 inquirer
@@ -79,6 +89,7 @@ inquirer
                 .then((data) => {
                     const engineer = new Engineer(data.name, data.id, data.email, data.github);
                     team.push(engineer);
+                    html += engineer.addEngineer();
                     inputNext(data.choice);
                  })
         }   else if (choice === 'Create Intern') {
@@ -116,12 +127,16 @@ inquirer
                 .then((data) => {
                     const intern = new Intern(data.name, data.id, data.email, data.school);
                     team.push(intern);
+                    html += intern.addIntern();
                     inputNext(data.choice);
                 })
         } else {
             console.log();
             console.log(team);
-            html +=
+            html += 
+`
+</body>
+</html>`
 
             fs.writeFile('dist/index.html', html, (err) =>
             err ? console.error(err) : console.log("Go into the dist folder to see the html file you created")
